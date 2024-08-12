@@ -1,7 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const Product = require("../models/productModel");
 const { fileSizeFormatter } = require("../utils/fileUpload");
-const cloudinary = require("cloudinary").v2;
+const cloudinary =require("./cloudinaryconfig")
 
 // Create Prouct
 const createProduct = asyncHandler(async (req, res) => {
@@ -11,7 +11,7 @@ const createProduct = asyncHandler(async (req, res) => {
   if (!name || !category || !quantity || !price || !description) {
     res.status(400);
     throw new Error("Please fill in all fields");
-  }
+  } 
 
   // Handle Image upload
   let fileData = {};
@@ -20,7 +20,7 @@ const createProduct = asyncHandler(async (req, res) => {
     let uploadedFile;
     try {
       uploadedFile = await cloudinary.uploader.upload(req.file.path, {
-        folder: "Pinvent App",
+        folder: "InvenTrack",
         resource_type: "image",
       });
     } catch (error) {

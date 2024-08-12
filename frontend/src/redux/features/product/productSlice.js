@@ -30,7 +30,7 @@ export const createProduct = createAsyncThunk(
       console.log(message);
       return thunkAPI.rejectWithValue(message);
     }
-  }
+  } 
 );
 
 // Get all products

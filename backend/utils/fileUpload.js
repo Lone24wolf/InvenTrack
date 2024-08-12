@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
       new Date().toISOString().replace(/:/g, "-") + "-" + file.originalname
     ); // 23/08/2022
   },
-});
+}); 
 
 // Specify file format that can be saved
 function fileFilter(req, file, cb) {
